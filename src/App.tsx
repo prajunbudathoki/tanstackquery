@@ -7,6 +7,7 @@ import FetchRQ from './pages/FetchRQ'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import FetchCard from './components/ui/FetchCard'
+import InfinitePage from './pages/InfinitePage'
 
 const queryClient = new QueryClient()
 
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: '/rq/:id',
         element: <FetchCard />
+      },
+      {
+        path: '/scrollinfinite',
+        element: <InfinitePage />
       },
     ]
   }
