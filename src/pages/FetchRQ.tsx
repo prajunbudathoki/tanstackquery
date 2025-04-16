@@ -23,7 +23,9 @@ const FetchRQ: React.FC = () => {
   const { data, error, isLoading } = useQuery<Post[], Error>({
     queryKey: ["posts"],
     queryFn: fetchPosts,
-    staleTime: 10000
+    staleTime: 10000,
+    // refetchInterval: 1000,
+    // refetchIntervalInBackground: true
   })
 
   if (isLoading) return <p>Loading...</p>
