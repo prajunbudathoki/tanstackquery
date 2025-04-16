@@ -12,7 +12,7 @@ interface Post {
 
 const FetchRQ: React.FC = () => {
   const fetchPosts = async (): Promise<Post[]> => {
-    const res = await axios.get("https://jsonplaceholder.typicode.com/postsa?_start=0&_limit=3")
+    const res = await axios.get("https://jsonplaceholder.typicode.com/posts?_start=0&_limit=3")
     if (res.status === 200) {
       return res.data
     } else {
@@ -22,7 +22,8 @@ const FetchRQ: React.FC = () => {
 
   const { data, error, isLoading } = useQuery<Post[], Error>({
     queryKey: ["posts"],
-    queryFn: fetchPosts
+    queryFn: fetchPosts,
+    staleTime: 10000
   })
 
   if (isLoading) return <p>Loading...</p>
